@@ -1,0 +1,30 @@
+// Place all the styles related to the Artists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+* {
+  font-family: Roboto;
+}
+
+.container {
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto;
+  column-gap: 10px;
+  row-gap: 15px;
+  display: grid;
+  padding: 10px;
+  .card {
+    display: flex;
+    flex-direction: column;
+    .img-container {
+      height: 200px;
+      overflow: hidden;
+      width: 100%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .text-container {
+
+    }
+  }
+}
