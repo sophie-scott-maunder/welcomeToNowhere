@@ -1,7 +1,6 @@
 class ArtistsController < ApplicationController
   def index
-    # a = Airrecord.table('keyFdQPlI3kMFutdY', 'appQU5xzDT5zzQdtO', 'Artists').all
-    @artists = Airrecord.table('keyFdQPlI3kMFutdY', 'appQU5xzDT5zzQdtO', 'Artists').all.map do |artist|
+    @artists = Airrecord.table(Rails.application.credentials.airtable_key, 'appQU5xzDT5zzQdtO', 'Artists').all.map do |artist|
       {
         name: artist['Performer/Band Name'],
         image_url: image(artist),

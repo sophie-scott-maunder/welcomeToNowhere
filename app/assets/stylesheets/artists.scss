@@ -5,8 +5,16 @@
   font-family: Roboto;
 }
 
+
+
 .container {
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+  @media screen and (min-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (min-width: 900px) {
+    grid-template-columns: repeat(8, 1fr);
+  }
   grid-template-rows: auto;
   column-gap: 10px;
   row-gap: 15px;
