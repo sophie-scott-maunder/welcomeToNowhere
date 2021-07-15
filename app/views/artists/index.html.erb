@@ -1,15 +1,15 @@
+
 <div class="container">
-  <% @artists.each do |artist| %>
-  <div class="card">
-    <div class="img-container" style="background-image: url(<%= artist[:image_url] %>)">
+  <% @artists.each.with_index do |artist, index| %>
+  <a href="/artists/<%= index %>">
+    <div class="card" style="background-color: <%= @colours[index % 9] %>">
+      <div class="img-container" style="background-image: url(<%= artist[:image_url] %>)"></div>
+      <div class="text-container">
+        <h3><%= artist[:name] %></h3>
+        <p><%= artist[:city] %></p>
+        <p><%= artist[:genre] %></p>
+      </div>
     </div>
-    <div class="text-container">
-      <h3><%= artist[:name] %></h3>
-      <p><%= artist[:city] %></p>
-      <p><%= artist[:description] %></p>
-      <p><%= artist[:genre] %></p>
-      <p><%= artist[:performer_details] %></p>
-    </div>
-  </div>
+  </a>
   <% end %>
 </div>
