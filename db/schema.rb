@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_07_13_060620) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "airtable_caches", force: :cascade do |t|
     t.string "uuid"
     t.datetime "created_at", precision: 6, null: false
