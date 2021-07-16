@@ -3,9 +3,10 @@
   <div class="text-container">
     <h3><%= @artists[@index][:name] %></h3>
     <p><%= @artists[@index][:city] %></p>
-    <p><%= @artists[@index][:description] %></p>
     <p><%= @artists[@index][:genre] %></p>
     <p><%= @artists[@index][:performer_details] %></p>
+    <a href="<%= @artists[@index][:links] %>">Links</a>
+    <p><%= @artists[@index][:long_description] %></p>
     <a href="/artists">Back</a>
   </div>
 </div>

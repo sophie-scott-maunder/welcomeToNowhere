@@ -28,6 +28,8 @@ class ArtistsController < ApplicationController
         image_url: image(artist),
         city: artist['Hometown'].present? ? artist['Hometown'] : 'Hometown not provided.',
         description: artist['Bio'].present? ? artist['Bio'] : 'Bio not provided.',
+        links: artist['Links'].present? && URI::regexp.match?(artist['Links']) ? URI::regexp.match(artist['Links'])[0] : 'Links not provided.',
+        long_description: artist['Bio (Extended)'].present? ? artist['Bio (Extended)'] : 'Extended bio not provided.',
         genre: artist['Genre'].present? ? artist['Genre'] : 'Genre not specified.',
         performer_details: artist['Performer Details'].present? ? artist['Performer Details'] : 'Performer details not provided.',
       }
