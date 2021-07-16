@@ -22,7 +22,7 @@ class ArtistsController < ApplicationController
   end
 
   def artists
-    Airrecord.table(Rails.application.credentials.airtable_key, 'appQU5xzDT5zzQdtO', 'Artists').all.map do |artist|
+    Airrecord.table(ENV['airtable_key'], 'appQU5xzDT5zzQdtO', 'Artists').all.map do |artist|
       {
         name: artist['Performer/Band Name'],
         image_url: image(artist),
