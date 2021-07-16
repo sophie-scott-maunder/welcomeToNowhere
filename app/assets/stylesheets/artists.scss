@@ -12,21 +12,29 @@ body {
 .show {
   padding: 20px;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   @media screen and (min-width: 950px) {
     padding: 50px;
     flex-direction: row;
   }
-  .img-container {
-    height: 60vh;
-    min-width: 300px;
-    background-repeat: no-repeat;
-    background-position: left;
+  img {
+    display: block;
+    max-width: 500px;
     @media screen and (min-width: 950px) {
+      display: none;
+    }
+  }
+  .img-container {
+    display: none;
+    @media screen and (min-width: 950px) {
+      background-repeat: no-repeat;
+      background-size: contain;
       background-position: top;
+      max-height: none;
       min-width: 500px;
       height: 70vh;
       padding-left: 0;
+      display: flex;
     }
   }
   .text-container {
@@ -36,7 +44,10 @@ body {
     max-width: 400px;
     @media screen and (min-width: 950px) {
       padding-left: 50px;
-      max-width: 400px;
+      max-width: 520px;
+    }
+    p {
+      line-height: 1.5;
     }
   }
 }

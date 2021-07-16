@@ -1,5 +1,6 @@
 <div class="show flex" style="background-color: <%= @colours[@index % 9] %>">
   <div class="img-container" style="background-image: url(<%= @artists[@index][:image_url] %>)"></div>
+  <img src="<%= @artists[@index][:image_url] %>">
   <div class="text-container">
     <h3><%= @artists[@index][:name] %></h3>
     <p><%= @artists[@index][:city] %></p>
