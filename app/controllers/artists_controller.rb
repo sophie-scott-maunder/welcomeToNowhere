@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  layout 'welcome_to_nowhere'
+
   def index
     @artists = artists
     @colours = colours

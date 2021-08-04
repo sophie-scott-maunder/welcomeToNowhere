@@ -1,5 +1,11 @@
-Rails.application.routes.draw do
-  resources :tickets
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :artists
-end
+Rails
+  .application
+  .routes
+  .draw do
+    resources :tickets
+    root to: 'eyegum#index'
+
+    get '/welcome_to_nowhere', to: 'welcome_to_nowhere#index'
+    get '/welcome_to_nowhere/artists', to: 'artists#index'
+    get '/welcome_to_nowhere/artists/:id', to: 'artists#show'
+  end
