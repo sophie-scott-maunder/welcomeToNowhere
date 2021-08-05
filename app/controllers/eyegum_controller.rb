@@ -1,5 +1,7 @@
 class EyegumController < ApplicationController
   layout 'eyegum'
 
-  def index; end
+  def index
+    @latest_news = %w[one two]
+  end
 end

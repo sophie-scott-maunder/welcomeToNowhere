@@ -5,7 +5,7 @@ Rails
     resources :tickets
     root to: 'eyegum#index'
 
-    get '/welcome_to_nowhere', to: 'welcome_to_nowhere#index'
-    get '/welcome_to_nowhere/artists', to: 'artists#index'
-    get '/welcome_to_nowhere/artists/:id', to: 'artists#show'
+    get '/welcometonowhere', to: 'welcome_to_nowhere#index'
+    get '/welcometonowhere/artists', to: 'artists#index'
+    get '/welcometonowhere/artists/:id', to: 'artists#show'
   end
