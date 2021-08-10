@@ -1,0 +1,53 @@
+nav {
+  background-color: $avocado;
+  width: 100%;
+  height: 85px;
+  border-bottom: 2px solid $black;
+  display: flex;
+  padding: 0 30px;
+  .image {
+    margin-right: auto;
+    background-image: url("logotype.svg");
+    height: 100%;
+    width: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 200px;
+    padding: 30px 0;
+  }
+  .links {
+    display: flex;
+    align-items: center;
+    padding: 30px 0;
+    width: 80%;
+    a {
+      margin-left: auto;
+      font-family: "Surt Light";
+      text-decoration: none;
+      padding: 1rem 0rem;
+      position: relative;
+      margin-right: 2rem;
+      &:after {
+        content: "";
+        display: block;
+        background-image: url("menu circle.svg");
+        background-size: 25px;
+        background-repeat: no-repeat;
+        width: 25px;
+        height: 25px;
+        position: absolute;
+        right: -35px;
+        top: 11px;
+      }
+      &:hover {
+        &:after {
+          background-image: url("menu circle HOVER.svg");
+        }
+      }
+    }
+  }
+
+  * {
+    color: $black;
+  }
+}
