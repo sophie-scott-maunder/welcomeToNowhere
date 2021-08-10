@@ -1,4 +1,4 @@
-<div class="container">
+<div class="main-container">
   <div class="splash">
     <h1>
       Eyegum is a collective of music enthusiasts
@@ -7,7 +7,9 @@
     </h1>
     <div class="hand"></div>
   </div>
-  <% @latest_news.each do |news_item| %>
-    <%= render partial: 'eyegum/news_item' %>
-  <% end %>
+  <div class="news">
+    <% @latest_news.each do |news_item| %>
+      <%= render partial: 'eyegum/news_item' %>
+    <% end %>
+  </div>
 </div>
