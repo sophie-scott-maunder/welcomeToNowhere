@@ -8,7 +8,7 @@
     padding: 0 30px;
     .image {
       margin-right: auto;
-      background-image: url("logotype.svg");
+      background-image: asset_url("logotype.svg");
       height: 100%;
       width: 200px;
       background-repeat: no-repeat;
@@ -31,7 +31,7 @@
         &:after {
           content: "";
           display: block;
-          background-image: url("menu circle.svg");
+          background-image: asset_url("menu circle.svg");
           background-size: 25px;
           background-repeat: no-repeat;
           width: 25px;
@@ -42,7 +42,7 @@
         }
         &:hover {
           &:after {
-            background-image: url("menu circle HOVER.svg");
+            background-image: asset_url("menu circle HOVER.svg");
           }
         }
       }
