@@ -48,5 +48,5 @@ const aminate_backround = () => {
 };
 
 window.addEventListener("scroll", () => {
-  window.requestAnimationFrame(aminate_backround);
+  // window.requestAnimationFrame(aminate_backround);
 });
