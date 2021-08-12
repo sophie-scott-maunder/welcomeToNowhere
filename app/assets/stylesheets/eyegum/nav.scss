@@ -31,7 +31,7 @@
         &:after {
           content: "";
           display: block;
-          background-image: asset_url("menu circle.svg");
+          background-image: asset_url("menu_circle.svg");
           background-size: 25px;
           background-repeat: no-repeat;
           width: 25px;
@@ -42,7 +42,7 @@
         }
         &:hover {
           &:after {
-            background-image: asset_url("menu circle HOVER.svg");
+            background-image: asset_url("menu_circle_HOVER.svg");
           }
         }
       }
