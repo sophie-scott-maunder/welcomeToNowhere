@@ -1,70 +1,72 @@
-.splash {
-  background-color: $avocado;
-  padding: 30px;
-  display: grid;
-  min-height: 540px;
-  grid-template-columns: 2fr 1fr;
-  border-bottom: 2px solid $black;
-  h1 {
-    font-family: "Reckless Neue Light";
-    max-width: 690px;
-    font-weight: 300;
-    font-size: 53px;
-    margin: 0;
+.eyegum {
+  .splash {
+    background-color: $avocado;
+    padding: 30px;
+    display: grid;
+    min-height: 540px;
+    grid-template-columns: 2fr 1fr;
+    border-bottom: 2px solid $black;
+    h1 {
+      font-family: "Reckless Neue Light";
+      max-width: 690px;
+      font-weight: 300;
+      font-size: 53px;
+      margin: 0;
+    }
+    .hand {
+      background-image: url("homepg_illustration 1");
+      background-size: contain;
+      background-repeat: no-repeat;
+      max-width: 500px;
+      height: auto;
+      margin-left: auto;
+      width: 100%;
+    }
+    * {
+      color: $black;
+    }
   }
-  .hand {
-    background-image: url("homepg_illustration 1");
-    background-size: contain;
-    background-repeat: no-repeat;
-    max-width: 500px;
-    height: auto;
-    margin-left: auto;
-    width: 100%;
-  }
-  * {
-    color: $black;
-  }
-}
 
-.news {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background-color: $avocado;
-  .news-item {
-    .top {
-      border-bottom: 2px solid $black;
-      padding: 15px 30px;
-      h2 {
-        width: 100%;
-        font-size: 18px;
-        font-family: "Reckless Neue Light";
-        margin: 0;
-        text-transform: uppercase;
+  .news {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: $avocado;
+    .news-item {
+      .top {
+        border-bottom: 2px solid $black;
+        padding: 15px 30px;
+        h2 {
+          width: 100%;
+          font-size: 18px;
+          font-family: "Reckless Neue Light";
+          margin: 0;
+          text-transform: uppercase;
+        }
       }
-    }
-    .bottom {
-      padding: 30px;
-      display: flex;
-      justify-content: flex-start;
-      min-height: 220px;
-      .image {
-        border: 2px solid $black;
-        border-top-left-radius: 1000px;
-        border-top-right-radius: 1000px;
-        width: 120px;
+      .bottom {
+        padding: 30px;
+        display: flex;
+        justify-content: flex-start;
+        min-height: 220px;
+        .image {
+          border: 2px solid $black;
+          border-top-left-radius: 1000px;
+          border-top-right-radius: 1000px;
+          width: 120px;
+        }
+        p {
+          margin: 0;
+          margin-left: 31px;
+          margin-right: 10px;
+          font-family: "Surt Light";
+          font-weight: 100;
+          font-size: 26px;
+          flex: 1;
+        }
       }
-      p {
-        margin: 0;
-        margin-left: 31px;
-        margin-right: 10px;
-        font-family: "Surt Light";
-        font-weight: 100;
-        font-size: 26px;
-        flex: 1;
+      &:first-of-type {
+        border-right: 2px solid $black;
       }
-    }
-    &:first-of-type {
-      border-right: 2px solid $black;
     }
   }
 }
