@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(RecklessNeue-Light.woff) format("woff");
+  src: asset_url("RecklessNeue-Light.woff") format("woff");
 }
 
 @font-face {
@@ -11,5 +11,5 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(Surt-Light.woff) format("woff");
+  src: asset_url("Surt-Light.woff") format("woff");
 }
