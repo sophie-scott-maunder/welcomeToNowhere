@@ -1,4 +1,22 @@
-class AirtableApiWrapper
+class Airtable
+  def self.fetch_homepage_blurb
+    Rails
+      .cache
+      .fetch([self, :fetch_homepage_blurb], expires_in: 10.hours) do
+        Airrecord
+          .table(
+            ENV['airtable_key'],
+            'app47yxhBJJGy9O2V',
+            'Eyegum website home page content',
+          )
+          .all
+          .first
+          .fields[
+          'home page blurb'
+        ]
+      end
+  end
+
   def self.fetch_artists
     Rails
       .cache

@@ -3,5 +3,6 @@ class EyegumController < ApplicationController
 
   def index
     @latest_news = %w[one two]
+    @blurb = Airtable.fetch_homepage_blurb
   end
 end
