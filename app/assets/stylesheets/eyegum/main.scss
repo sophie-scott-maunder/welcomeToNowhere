@@ -6,36 +6,44 @@
     min-height: 540px;
     grid-template-columns: 2fr 1fr;
     border-bottom: 2px solid $black;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: $breakpoint) {
       border-bottom: none;
       grid-template-columns: 1fr;
       padding: 15px;
+      padding-top: 57px;
     }
     h1 {
       font-family: "Reckless Neue Light";
       max-width: 690px;
       font-weight: 300;
       font-size: 53px;
+      line-height: 63.6px;
+      letter-spacing: -0.03em;
       margin: 0;
-      @media screen and (max-width: 1000px) {
+      @media screen and (max-width: $breakpoint) {
         margin-top: 10px;
         font-size: 33px;
+        line-height: 43.6px;
+        letter-spacing: -0.03em;
       }
     }
     .hand {
       background-image: asset_url("homepg_illustration_1");
+      background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
       max-width: 500px;
       height: auto;
-      margin-left: auto;
       width: 100%;
-      @media screen and (max-width: 1000px) {
+      &.alt {
+        background-image: asset_url("homepg_illustration_2");
+      }
+      @media screen and (max-width: $breakpoint) {
         max-width: 238px;
         height: 228px;
         background-position: center;
         margin: auto;
-        margin-bottom: 70px;
+        margin-bottom: 60px;
         margin-top: 70px;
       }
     }
@@ -48,13 +56,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: $avocado;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: $breakpoint) {
       grid-template-columns: 1fr;
     }
     .news-item {
       .top {
         border-bottom: 2px solid $black;
-        @media screen and (max-width: 1000px) {
+        @media screen and (max-width: $breakpoint) {
           border-bottom: 2px solid $black;
           border-top: 2px solid $black;
         }
@@ -65,6 +73,7 @@
           font-family: "Reckless Neue Light";
           margin: 0;
           text-transform: uppercase;
+          letter-spacing: -0.03em;
         }
       }
       .bottom {
@@ -72,6 +81,9 @@
         display: flex;
         justify-content: flex-start;
         min-height: 220px;
+        @media screen and (max-width: $breakpoint) {
+          padding: 15px;
+        }
         .image {
           border: 2px solid $black;
           border-top-left-radius: 1000px;
@@ -83,19 +95,24 @@
           margin-left: 31px;
           margin-right: 10px;
           font-family: "Surt Light";
-          font-weight: 100;
           font-size: 26px;
-          line-height: 32px;
           flex: 1;
-          @media screen and (max-width: 1000px) {
+          font-style: normal;
+          font-weight: 300;
+          line-height: 31px;
+          letter-spacing: -0.01em;
+          text-align: left;
+
+          @media screen and (max-width: $breakpoint) {
             font-size: 18px;
-            line-height: 21.1px;
+            line-height: 22px;
+            text-align: left;
           }
         }
       }
       &:first-of-type {
         border-right: 2px solid $black;
-        @media screen and (max-width: 1000px) {
+        @media screen and (max-width: $breakpoint) {
           border-right: none;
         }
       }

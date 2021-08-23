@@ -50,3 +50,7 @@ const aminate_backround = () => {
 window.addEventListener("scroll", () => {
   // window.requestAnimationFrame(aminate_backround);
 });
+
+setInterval(() => {
+  document.getElementsByClassName("hand")[0].classList.toggle("alt");
+}, 3000);
