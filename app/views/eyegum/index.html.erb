@@ -9,7 +9,7 @@
   </div>
   <div class="news">
     <% @latest_news.each do |news_item| %>
-      <%= render partial: 'eyegum/news_item' %>
+      <%= render partial: 'eyegum/news_item', locals: { news_item: news_item } %>
     <% end %>
   </div>
 </div>
