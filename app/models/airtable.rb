@@ -1,8 +1,21 @@
 class Airtable
-  def self.fetch_homepage_blurb
+  def self.latest_news
+    # Rails
+    #   .cache
+    #   .fetch([self, :latest_news], expires_in: 10.hours) do
+    Airrecord
+      .table(ENV['airtable_key'], 'app47yxhBJJGy9O2V', 'Eyegum news items')
+      .all
+      .map do |item|
+        [item.fields['news item'], item.fields['copy'], image(item, 'photo')]
+      end
+    # end
+  end
+
+  def self.homepage_blurb
     Rails
       .cache
-      .fetch([self, :fetch_homepage_blurb], expires_in: 10.hours) do
+      .fetch([self, :homepage_blurb], expires_in: 10.hours) do
         Airrecord
           .table(
             ENV['airtable_key'],
@@ -17,17 +30,17 @@ class Airtable
       end
   end
 
-  def self.fetch_artists
+  def self.artists
     Rails
       .cache
-      .fetch([self, :fetch_artists], expires_in: 10.hours) do
+      .fetch([self, :artists], expires_in: 10.hours) do
         Airrecord
           .table(ENV['airtable_key'], 'app47yxhBJJGy9O2V', 'Bands Live')
           .all
           .map do |artist|
             {
               name: artist['Name'],
-              image_url: image(artist),
+              image_url: image(artist, 'Portrait Press Shot'),
               city:
                 if artist['Hometown'].present?
                   artist['Hometown']
@@ -68,10 +81,10 @@ class Airtable
 
   private
 
-  def self.image(record)
-    if record['Portrait Press Shot'].present?
-      if record['Portrait Press Shot'][0]['thumbnails'].present?
-        record['Portrait Press Shot'][0]['thumbnails']['large']['url']
+  def self.image(record, identifier)
+    if record[identifier].present?
+      if record[identifier][0]['thumbnails'].present?
+        record[identifier][0]['thumbnails']['large']['url']
       end
     end
   end

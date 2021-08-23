@@ -1,11 +1,12 @@
 <div class="news-item">
   <div class="top">
-    <h2>News item</h2>
+    <h2><%= news_item[0].present? && news_item[0].html_safe %></h2>
   </div>
   <div class="bottom">
-    <div class="image"></div>
+    <% img = news_item[2].present? ? "background-image: url(#{news_item[2]});" : '' %>
+    <div class="image" style="<%= img %>"></div>
     <p>
-      <%= news_item.html_safe %>
+      <%= news_item[1].present? && news_item[1].html_safe %>
     </p>
   </div>
 </div>
