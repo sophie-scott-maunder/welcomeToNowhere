@@ -13,70 +13,65 @@ class Airtable
   end
 
   def self.homepage_blurb
-    Rails
-      .cache
-      .fetch([self, :homepage_blurb], expires_in: 10.hours) do
-        Airrecord
-          .table(
-            ENV['airtable_key'],
-            'app47yxhBJJGy9O2V',
-            'Eyegum website home page content',
-          )
-          .all
-          .first
-          .fields[
-          'home page blurb'
-        ]
-      end
+    # Rails
+    #   .cache
+    #   .fetch([self, :homepage_blurb], expires_in: 10.hours) do
+    Airrecord
+      .table(
+        ENV['airtable_key'],
+        'app47yxhBJJGy9O2V',
+        'Eyegum website home page content',
+      )
+      .all
+      .first
+      .fields[
+      'home page blurb'
+    ]
+    # end
   end
 
   def self.artists
-    Rails
-      .cache
-      .fetch([self, :artists], expires_in: 10.hours) do
-        Airrecord
-          .table(ENV['airtable_key'], 'app47yxhBJJGy9O2V', 'Bands Live')
-          .all
-          .map do |artist|
-            {
-              name: artist['Name'],
-              image_url: image(artist, 'Portrait Press Shot'),
-              city:
-                if artist['Hometown'].present?
-                  artist['Hometown']
-                else
-                  'Hometown not provided.'
-                end,
-              description:
-                artist['Bio'].present? ? artist['Bio'] : 'Bio not provided.',
-              links:
-                if artist['Links'].present? &&
-                     URI.regexp.match?(artist['Links'])
-                  URI.regexp.match(artist['Links'])[0]
-                else
-                  'Links not provided.'
-                end,
-              long_description:
-                if artist['Bio (Extended)'].present?
-                  artist['Bio (Extended)']
-                else
-                  'Extended bio not provided.'
-                end,
-              genre:
-                if artist['Genre'].present?
-                  artist['Genre']
-                else
-                  'Genre not specified.'
-                end,
-              performer_details:
-                if artist['Performer Details'].present?
-                  artist['Performer Details']
-                else
-                  'Performer details not provided.'
-                end,
-            }
-          end
+    # Rails
+    #   .cache
+    #   .fetch([self, :artists], expires_in: 10.hours) do
+    Airrecord
+      .table(ENV['airtable_key'], 'app47yxhBJJGy9O2V', 'Bands Live')
+      .all
+      .map do |artist|
+        {
+          name: artist['Name'],
+          image_url: image(artist, 'Portrait Press Shot'),
+          city:
+            if artist['Hometown'].present?
+              artist['Hometown']
+            else
+              'Hometown not provided.'
+            end,
+          description:
+            artist['Bio'].present? ? artist['Bio'] : 'Bio not provided.',
+          links:
+            if artist['Links'].present? && URI.regexp.match?(artist['Links'])
+              URI.regexp.match(artist['Links'])[0]
+            else
+              'Links not provided.'
+            end,
+          long_description:
+            if artist['Bio (Extended)'].present?
+              artist['Bio (Extended)']
+            else
+              'Extended bio not provided.'
+            end,
+          genre:
+            artist['Genre'].present? ? artist['Genre'] : 'Genre not specified.',
+          performer_details:
+            if artist['Performer Details'].present?
+              artist['Performer Details']
+            else
+              'Performer details not provided.'
+            end,
+        }
       end
+    # end
   end
 
   private

@@ -85,7 +85,6 @@
           padding: 15px;
         }
         .image {
-          border: 2px solid $black;
           border-top-left-radius: 1000px;
           border-top-right-radius: 1000px;
           width: 120px;
@@ -93,16 +92,19 @@
           background-position: center;
           background-repeat: no-repeat;
         }
+        a {
+          color: $black;
+        }
         p {
           margin: 0;
           margin-left: 31px;
           margin-right: 10px;
           font-family: "Surt Light";
-          font-size: 26px;
+          font-size: 18px;
           flex: 1;
           font-style: normal;
           font-weight: 300;
-          line-height: 31px;
+          line-height: 25px;
           letter-spacing: -0.01em;
           text-align: left;
 
