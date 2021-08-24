@@ -2,9 +2,13 @@ class EyegumController < ApplicationController
   layout 'eyegum'
 
   def index
-    @latest_news = Airtable.latest_news.slice(0, 2)
-    @blurb = Airtable.homepage_blurb
+    @background_colour = Colours.avocado
+    @latest_news = Airtable.fetch(:latest_news).slice(0, 2)
+    @blurb = Airtable.fetch(:homepage_blurb)
   end
 
-  def free_wednesdays; end
+  def free_wednesdays
+    @background_colour = Colours.white
+    @upcoming_acts = Airtable.fetch(:upcoming_acts)
+  end
 end

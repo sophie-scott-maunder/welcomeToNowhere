@@ -13,6 +13,14 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
+window.addEventListener("DOMContentLoaded", () => {
+  if (document.getElementsByClassName("hand").length) {
+    setInterval(() => {
+      document.getElementsByClassName("hand")[0].classList.toggle("alt");
+    }, 3000);
+  }
+});
+
 // import Client from "shopify-buy";
 
 // // Initializing a client to return content in the store's primary language
@@ -50,7 +58,3 @@ const aminate_backround = () => {
 window.addEventListener("scroll", () => {
   // window.requestAnimationFrame(aminate_backround);
 });
-
-setInterval(() => {
-  document.getElementsByClassName("hand")[0].classList.toggle("alt");
-}, 3000);

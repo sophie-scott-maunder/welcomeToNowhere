@@ -1,21 +1,34 @@
-class Airtable
+module Airtable
+  def self.fetch(resource)
+    # caches if in development
+    return ENV['RACK_ENV'] == 'development' && self.send(resource)
+
+    Rails
+      .cache
+      .fetch([self, resource], expires_in: 10.hours) { self.send(resource) }
+  end
+
+  def self.upcoming_acts
+    Airrecord
+      .table(
+        ENV['airtable_key'],
+        'app47yxhBJJGy9O2V',
+        'Eyegum wednesday content',
+      )
+      .all
+      .map(&:fields)
+  end
+
   def self.latest_news
-    # Rails
-    #   .cache
-    #   .fetch([self, :latest_news], expires_in: 10.hours) do
     Airrecord
       .table(ENV['airtable_key'], 'app47yxhBJJGy9O2V', 'Eyegum news items')
       .all
       .map do |item|
         [item.fields['news item'], item.fields['copy'], image(item, 'photo')]
       end
-    # end
   end
 
   def self.homepage_blurb
-    # Rails
-    #   .cache
-    #   .fetch([self, :homepage_blurb], expires_in: 10.hours) do
     Airrecord
       .table(
         ENV['airtable_key'],
@@ -27,13 +40,9 @@ class Airtable
       .fields[
       'home page blurb'
     ]
-    # end
   end
 
   def self.artists
-    # Rails
-    #   .cache
-    #   .fetch([self, :artists], expires_in: 10.hours) do
     Airrecord
       .table(ENV['airtable_key'], 'app47yxhBJJGy9O2V', 'Bands Live')
       .all
@@ -71,7 +80,6 @@ class Airtable
             end,
         }
       end
-    # end
   end
 
   private

@@ -1,6 +1,5 @@
 .eyegum {
   .splash {
-    background-color: $avocado;
     padding: 30px;
     display: grid;
     min-height: 540px;
@@ -55,18 +54,18 @@
   .news {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: $avocado;
     @media screen and (max-width: $breakpoint) {
       grid-template-columns: 1fr;
     }
     .news-item {
       .top {
         border-bottom: 2px solid $black;
+        padding: 15px 30px;
         @media screen and (max-width: $breakpoint) {
           border-bottom: 2px solid $black;
           border-top: 2px solid $black;
+          padding: 15px;
         }
-        padding: 15px 30px;
         h2 {
           width: 100%;
           font-size: 18px;

@@ -1,11 +1,11 @@
 <div class="main-container">
-  <div class="splash">
+  <div class="splash" style="background-color: <%= @background_colour %>;">
     <h1>
       <%= @blurb %>
     </h1>
     <div class="hand"></div>
   </div>
-  <div class="news">
+  <div class="news" style="background-color: <%= @background_colour %>;">
     <% @latest_news.each do |news_item| %>
       <%= render partial: 'eyegum/news_item', locals: { news_item: news_item } %>
     <% end %>
