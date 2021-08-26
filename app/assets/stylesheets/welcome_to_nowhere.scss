@@ -1,33 +1,84 @@
+#v0 {
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+body {
+  height: 5000px;
+}
+
+.buy-tickets {
+}
+
 .wtn {
-  // body {
-  //   height: 400vh;
-  // }
   .splash {
     width: 100%;
     height: 100vh;
-
-    div {
-      background-repeat: no-repeat;
-      background-size: contain;
-      width: 100%;
-      height: 100vh;
-      position: fixed;
+    .parallax {
     }
     .heading {
-      z-index: 10;
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      z-index: 101;
       h1 {
+        font-family: "Reckless Neue Light";
+        max-width: 690px;
+        font-weight: 300;
+        font-size: 40px;
+        line-height: 63.6px;
+        letter-spacing: -0.03em;
+        margin: auto;
+        color: $white;
+        text-align: center;
       }
     }
-    .sky {
-      background-image: url(sky.png);
-      // background-image: url(Welcome-To-Nowhere_5747);
+    .background,
+    .midground,
+    .foreground {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position-x: center;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      bottom: 0;
     }
-    .stage {
-      background-image: url(stage.png);
+    .background {
+      background-image: url(back1.png);
     }
-    .crowd {
-      background-image: url(crowd.png);
-      background-position-y: 411px;
+    .midground {
+      background-image: url(mid1.png);
+      &::after {
+        content: "";
+        display: block;
+        height: 1000px;
+        width: 120vw;
+        background-color: $white;
+        top: 100vh;
+        position: absolute;
+        box-shadow: 0px -40px 31px 0px $white;
+      }
     }
+    .foreground {
+      background-image: url(fore1.png);
+      z-index: 100;
+      transition: opacity 0.3s ease-in;
+      &::after {
+        content: "";
+        display: block;
+        height: 1000px;
+        width: 100vw;
+        background-color: $white;
+        top: 100vh;
+        position: absolute;
+      }
+    }
+  }
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 }

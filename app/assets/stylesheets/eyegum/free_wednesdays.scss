@@ -1,0 +1,30 @@
+.wednesdays {
+  .splash {
+    border-bottom: none !important;
+  }
+  .coming-up {
+    padding: 30px;
+    @media screen and (max-width: $breakpoint) {
+      padding: 15px;
+    }
+
+    h3 {
+      font-family: Surt;
+      font-size: 26px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 33px;
+      letter-spacing: -0.01em;
+      text-align: left;
+    }
+    p {
+      font-family: Surt;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: 33px;
+      letter-spacing: -0.01em;
+      text-align: right;
+    }
+  }
+}

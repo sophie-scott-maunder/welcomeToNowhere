@@ -1,12 +1,27 @@
-<div class="main-container">
-  <div class="splash" style="background-color: <%= @background_colour %>;">
+<div class="main-container wednesdays">
+  <div class="splash " style="background-color: <%= @background_colour %>;">
     <h1>
       Free Wednesdays
     </h1>
     <p>Most weeks at San Fran, come check out upcoming local artists, totally free.</p>
     <div class="image"></div>
   </div>
-  <div class="coming-up">
+  <div class="coming-up" style="background-color: <%= @background_colour %>;">
+    <h3>Coming Up</h3>
+    <% @upcoming_acts.each do |act| %>
+      <div class="act">
+        <div class="top">
+          <p><%= act['Date'] %></p>
+          <h3><%= act['Event title'] %></h3>
+        </div>
 
+        <p>
+          <%= act['Address'] %>
+        </p>
+        <p>
+          <%= act['Insert short caption about event'] %>
+        </p>
+      </div>
+    <% end %>
   </div>
 </div>

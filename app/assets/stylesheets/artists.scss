@@ -48,6 +48,10 @@ body {
 }
 
 .container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 800px;
+
   grid-template-columns: repeat(1, 1fr);
   @media screen and (min-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
@@ -61,9 +65,9 @@ body {
     grid-template-columns: repeat(5, minmax(50px, 1fr));
   }
 
-  @media screen and (min-width: 1550px) {
-    grid-template-columns: repeat(7, minmax(50px, 1fr));
-  }
+  // @media screen and (min-width: 1550px) {
+  //   grid-template-columns: repeat(7, minmax(50px, 1fr));
+  // }
   grid-template-rows: auto;
   column-gap: 10px;
   row-gap: 15px;

@@ -15,7 +15,7 @@ class ArtistsController < ApplicationController
   private
 
   def artists
-    Airtable.artists
+    Airtable.fetch(:artists)
   end
 
   def colours

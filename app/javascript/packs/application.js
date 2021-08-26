@@ -19,42 +19,85 @@ window.addEventListener("DOMContentLoaded", () => {
       document.getElementsByClassName("hand")[0].classList.toggle("alt");
     }, 3000);
   }
-});
 
-// import Client from "shopify-buy";
+  // import Client from "shopify-buy";
 
-// // Initializing a client to return content in the store's primary language
-// const client = Client.buildClient({
-//   domain: "eyegum.myshopify.com",
-//   storefrontAccessToken: "3d8921da235f01fcf0d51ad2fb3997e7",
-// });
+  // // Initializing a client to return content in the store's primary language
+  // const client = Client.buildClient({
+  //   domain: "eyegum.myshopify.com",
+  //   storefrontAccessToken: "3d8921da235f01fcf0d51ad2fb3997e7",
+  // });
 
-// // Fetch all products in your shop
-// client.product.fetchAll().then((products) => {
-//   // Do something with the products
-//   a = document.getElementById("product");
-//   a.style = "background-image: " + products[0].images.src;
-//   products[0].images.src;
-// });
+  // // Fetch all products in your shop
+  // client.product.fetchAll().then((products) => {
+  //   // Do something with the products
+  //   a = document.getElementById("product");
+  //   a.style = "background-image: " + products[0].images.src;
+  //   products[0].images.src;
+  // });
 
-const speeds = [8, 16, 26, 36, 49, 69];
-
-const aminate_backround = () => {
-  var top = window.pageYOffset;
-
+  var initHeight = window.innerHeight;
   var layers = document.getElementsByClassName("parallax");
-  var layer, speed, yPos;
+  var title = document.querySelector(".heading h1");
+  var foreground = document.getElementsByClassName("foreground")[0];
+  var midground = document.getElementsByClassName("midground")[0];
+  var background = document.getElementsByClassName("background")[0];
+
   for (var i = 0; i < layers.length; i++) {
-    layer = layers[i];
-    speed = speeds[i];
-    var yPos = -((top * speed) / 100);
-    layer.setAttribute(
+    layers[i].setAttribute(
       "style",
-      "transform: translate3d(0px, " + yPos + "px, 0px)"
+      "background-position-y: " + -(1070 - initHeight) + "px;"
     );
   }
-};
 
-window.addEventListener("scroll", () => {
-  // window.requestAnimationFrame(aminate_backround);
+  const speeds = [40, 16, 26, 36, 49, 69];
+
+  const aminate_backround = () => {
+    var top = window.pageYOffset;
+
+    title.setAttribute(
+      "style",
+      "transform: translate3d(0px, " +
+        -((top * 40) / 100) +
+        "px, 0px); background-position-y: " +
+        -(1070 - initHeight) +
+        "px;"
+    );
+
+    foreground.setAttribute(
+      "style",
+      "transform: translate3d(0px, " +
+        -((top * 36) / 100) +
+        "px, 0px) scale(" +
+        (1 + top / 1000) +
+        "); background-position-y: " +
+        -(1070 - initHeight) +
+        "px;"
+    );
+
+    top > 750 && foreground.classList.add("hidden");
+    top < 750 && foreground.classList.remove("hidden");
+
+    midground.setAttribute(
+      "style",
+      "transform: translate3d(0px, " +
+        -((top * 26) / 100) +
+        "px, 0px); background-position-y: " +
+        -(1070 - initHeight) +
+        "px;"
+    );
+
+    background.setAttribute(
+      "style",
+      "transform: translate3d(0px, " +
+        -((top * 16) / 100) +
+        "px, 0px); background-position-y: " +
+        -(1070 - initHeight) +
+        "px;"
+    );
+  };
+
+  window.addEventListener("scroll", () => {
+    window.requestAnimationFrame(aminate_backround);
+  });
 });

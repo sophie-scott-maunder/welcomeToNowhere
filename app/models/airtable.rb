@@ -1,7 +1,7 @@
 module Airtable
   def self.fetch(resource)
     # caches if in development
-    return ENV['RACK_ENV'] == 'development' && self.send(resource)
+    # return ENV['RACK_ENV'] == 'development' && self.send(resource)
 
     Rails
       .cache
