@@ -43,12 +43,12 @@ document.addEventListener("turbolinks:load", () => {
   var midground = document.getElementsByClassName("midground")[0];
   var background = document.getElementsByClassName("background")[0];
 
-  for (var i = 0; i < layers.length; i++) {
-    layers[i].setAttribute(
-      "style",
-      "background-position-y: " + -(1070 - initHeight) + "px;"
-    );
-  }
+  // for (var i = 0; i < layers.length; i++) {
+  //   layers[i].setAttribute(
+  //     "style",
+  //     "background-position-y: " + -(1070 - initHeight) + "px;"
+  //   );
+  // }
 
   const speeds = [40, 16, 26, 36, 49, 69];
 
@@ -57,11 +57,7 @@ document.addEventListener("turbolinks:load", () => {
 
     title.setAttribute(
       "style",
-      "transform: translate3d(0px, " +
-        -((top * 40) / 100) +
-        "px, 0px); background-position-y: " +
-        -(1070 - initHeight) +
-        "px;"
+      "transform: translate3d(0px, " + -((top * 40) / 100) + "px, 0px);"
     );
 
     foreground.setAttribute(
@@ -70,9 +66,7 @@ document.addEventListener("turbolinks:load", () => {
         -((top * 30) / 100) +
         "px, 0px) scale(" +
         (1 + top / 2000) +
-        "); background-position-y: " +
-        -(1070 - initHeight) +
-        "px;"
+        ");"
     );
 
     top > 950 && foreground.classList.add("hidden");
@@ -80,20 +74,12 @@ document.addEventListener("turbolinks:load", () => {
 
     midground.setAttribute(
       "style",
-      "transform: translate3d(0px, " +
-        -((top * 26) / 100) +
-        "px, 0px); background-position-y: " +
-        -(1070 - initHeight) +
-        "px;"
+      "transform: translate3d(0px, " + -((top * 26) / 100) + "px, 0px);"
     );
 
     background.setAttribute(
       "style",
-      "transform: translate3d(0px, " +
-        -((top * 16) / 100) +
-        "px, 0px); background-position-y: " +
-        -(1070 - initHeight) +
-        "px;"
+      "transform: translate3d(0px, " + -((top * 16) / 100) + "px, 0px);"
     );
   };
 
