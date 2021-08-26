@@ -67,16 +67,16 @@ window.addEventListener("DOMContentLoaded", () => {
     foreground.setAttribute(
       "style",
       "transform: translate3d(0px, " +
-        -((top * 36) / 100) +
+        -((top * 30) / 100) +
         "px, 0px) scale(" +
-        (1 + top / 1000) +
+        (1 + top / 2000) +
         "); background-position-y: " +
         -(1070 - initHeight) +
         "px;"
     );
 
-    top > 750 && foreground.classList.add("hidden");
-    top < 750 && foreground.classList.remove("hidden");
+    top > 950 && foreground.classList.add("hidden");
+    top < 950 && foreground.classList.remove("hidden");
 
     midground.setAttribute(
       "style",

@@ -23,6 +23,7 @@ body {
       height: 100vh;
       display: flex;
       z-index: 101;
+      pointer-events: none;
       h1 {
         font-family: "Reckless Neue Light";
         max-width: 690px;
