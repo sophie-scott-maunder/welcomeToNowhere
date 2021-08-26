@@ -13,11 +13,10 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("cover").classList.add("hidden");
-});
-
 document.addEventListener("turbolinks:load", () => {
+  setTimeout(() => {
+    document.getElementById("cover").classList.add("hidden");
+  }, 500);
   if (document.getElementsByClassName("hand").length) {
     setInterval(() => {
       document.getElementsByClassName("hand")[0].classList.toggle("alt");
