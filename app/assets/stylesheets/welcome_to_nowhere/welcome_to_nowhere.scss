@@ -47,10 +47,10 @@ body {
       bottom: 0;
     }
     .background {
-      background-image: url(back1.png);
+      background-image: asset_url("back1.png");
     }
     .midground {
-      background-image: url(mid1.png);
+      background-image: asset_url("mid1.png");
       &::after {
         content: "";
         display: block;
@@ -63,17 +63,18 @@ body {
       }
     }
     .foreground {
-      background-image: url(fore1.png);
+      background-image: asset_url("fore1.png");
       z-index: 100;
       transition: opacity 0.3s ease-in;
       &::after {
         content: "";
         display: block;
         height: 1000px;
-        width: 100vw;
+        width: 120vw;
         background-color: $white;
         top: 100vh;
         position: absolute;
+        box-shadow: 0px -40px 31px 0px $white;
       }
     }
   }
