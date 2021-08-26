@@ -13,6 +13,10 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("cover").classList.add("hidden");
+});
+
 document.addEventListener("turbolinks:load", () => {
   if (document.getElementsByClassName("hand").length) {
     setInterval(() => {
