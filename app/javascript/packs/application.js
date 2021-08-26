@@ -13,7 +13,7 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 
-window.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("turbolinks:load", () => {
   if (document.getElementsByClassName("hand").length) {
     setInterval(() => {
       document.getElementsByClassName("hand")[0].classList.toggle("alt");
