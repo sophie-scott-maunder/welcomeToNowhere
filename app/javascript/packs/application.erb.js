@@ -60,41 +60,18 @@ document.addEventListener("turbolinks:load", () => {
     images.push(img);
   }
   var canv = document.getElementById("background");
+  var splashHeight = document.getElementsByClassName("splash")[0].clientHeight;
   var context = canv.getContext("2d");
 
   var currentLocation = 0;
 
   var setImage = function (newLocation) {
-    context.drawImage(images[newLocation], 0, 0, 1280, 720);
-  };
-  var wheelDistance = function (evt) {
-    if (!evt) evt = event;
-    var w = evt.wheelDelta,
-      d = evt.detail;
-    if (d) {
-      if (w) return (w / d / 40) * d > 0 ? 1 : -1;
-      // Opera
-      else return -d / 3; // Firefox;         TODO: do not /3 for OS X
-    } else return w / 120; // IE/Safari/Chrome TODO: /3 for Chrome OS X
-  };
-  var wheelDirection = function (evt) {
-    if (!evt) evt = event;
-    return evt.detail < 0 ? 1 : evt.wheelDelta > 0 ? 1 : -1;
+    context.drawImage(images[newLocation], 0, 0, 1920, 1080);
   };
 
   var MouseWheelHandler = function (e) {
-    // e.preventDefault(); // No scroll
-
-    // The following equation will return either a 1 for scroll down
-    // or -1 for a scroll up
-    var distance = wheelDistance(e);
-    var direction = wheelDirection(e);
-
-    // This code mostly keeps us from going too far in either direction
-    currentLocation -= Math.round(distance);
-    if (currentLocation < 0) currentLocation = 0;
-    if (currentLocation >= images.length) currentLocation = images.length - 1;
-
+    var percent = window.scrollY / splashHeight;
+    currentLocation = Math.round(totalImages * percent);
     // See below for the details of this function
     setImage(currentLocation);
   };
@@ -127,11 +104,7 @@ document.addEventListener("turbolinks:load", () => {
     //     });
     // }
   };
-  // IE9, Chrome, Safari, Opera
-  window.addEventListener("mousewheel", MouseWheelHandler, false);
-  // Firefox
-  window.addEventListener("DOMMouseScroll", MouseWheelHandler, false);
-  window.addEventListener("resize", canvasFillWin, false);
+  window.addEventListener("scroll", MouseWheelHandler, false);
   setImage(1);
   canvasFillWin();
 });
