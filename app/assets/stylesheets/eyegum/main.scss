@@ -1,4 +1,14 @@
 .eyegum {
+  &::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1; // hide images
+    content: asset_url("homepg_illustration_1")
+      asset_url("homepg_illustration_2") asset_url("logotype.svg")
+      asset_url("menu_circle.svg") asset_url("menu_circle_HOVER.svg");
+  }
   .splash {
     padding: 30px;
     display: grid;

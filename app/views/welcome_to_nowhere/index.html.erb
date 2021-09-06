@@ -2,28 +2,30 @@
 <div class="wtn">
   <div class="splash">
     <div class="heading">
-      <h1 class="parallax">WELCOME TO NOWHERE</h1>
+      <h1 class="">WELCOME TO NOWHERE</h1>
     </div>
-    <div class="parallax background"></div>
-    <div class="parallax midground"></div>
-    <div class="parallax foreground"></div>
-  </div>
-  <div class="buy-tickets">
-    <h2>Buy Tickets</h2>
+    <div class="arch"></div>
+    <canvas height="720" width="1280" id="background"></canvas>
   </div>
   <h2>ARTISTS</h2>
   <div class="container">
     <% @artists.each.with_index do |artist, index| %>
-    <a href="/welcometonowhere/artists/<%= index %>">
-      <div class="card" style="background-color: <%= @colours[index % 9] %>">
-        <div class="img-container" style="background-image: url(<%= artist[:image_url] %>)"></div>
-        <div class="text-container">
-          <h3><%= artist[:name] %></h3>
-          <p><%= artist[:city] %></p>
-          <p><%= artist[:genre] %></p>
+      <a href="/welcometonowhere/artists/<%= index %>">
+        <div class="card" style="background-color: <%= @colours[index % 9] %>">
+          <div class="img-container" style="background-image: url(<%= artist[:image_url] %>)"></div>
+          <div class="text-container">
+            <h3>
+              <%= artist[:name] %>
+            </h3>
+            <p>
+              <%= artist[:city] %>
+            </p>
+            <p>
+              <%= artist[:genre] %>
+            </p>
+          </div>
         </div>
-      </div>
-    </a>
-    <% end %>
+      </a>
+      <% end %>
   </div>
 </div>
