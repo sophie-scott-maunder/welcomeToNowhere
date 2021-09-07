@@ -2,6 +2,7 @@ class WelcomeToNowhereController < ApplicationController
   layout 'welcome_to_nowhere'
 
   def index
+    @background_colour = Colours.white
     @artists = artists
     @colours = colours
   end

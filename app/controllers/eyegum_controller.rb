@@ -9,6 +9,12 @@ class EyegumController < ApplicationController
 
   def free_wednesdays
     @background_colour = Colours.white
-    @upcoming_acts = Airtable.fetch(:upcoming_acts)
+    @upcoming_acts =
+      Airtable
+        .fetch(:upcoming_acts)
+        .filter { |act| act['Event title'].present? }
   end
+
+  def other_events; end
+  def about_us; end
 end

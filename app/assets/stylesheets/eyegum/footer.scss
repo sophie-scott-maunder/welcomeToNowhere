@@ -1,145 +1,146 @@
-.eyegum {
-  footer {
-    background-color: $black;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto;
+footer {
+  background-color: $black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas:
+    "left right"
+    "base base";
+  @media screen and (max-width: $breakpoint) {
     grid-template-areas:
-      "left right"
+      "left left"
+      "right right"
       "base base";
+  }
+  > div {
+    padding: 30px;
+    padding-top: 35px;
     @media screen and (max-width: $breakpoint) {
-      grid-template-areas:
-        "left left"
-        "right right"
-        "base base";
+      padding: 15px;
     }
-    > div {
-      padding: 30px;
-      padding-top: 35px;
-      @media screen and (max-width: $breakpoint) {
-        padding: 15px;
-      }
+  }
+  .left {
+    grid-area: left;
+    @media screen and (max-width: $breakpoint) {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 32px;
     }
-    .left {
-      grid-area: left;
+    .links {
       @media screen and (max-width: $breakpoint) {
         display: flex;
-        justify-content: space-between;
-        padding-top: 32px;
-      }
-      .links {
-        @media screen and (max-width: $breakpoint) {
-          display: flex;
-          flex-direction: column;
-          a {
-            width: 100%;
-            font-size: 18px;
-          }
-        }
-      }
-      a {
-        text-decoration: none;
-        font-size: 26px;
-        width: 32%;
-        display: inline-block;
-        line-height: 2;
-        letter-spacing: -0.01em;
-      }
-      .image {
-        background-image: asset_url("logomark_white");
-        height: 120px;
-        margin-top: 50px;
-        background-repeat: no-repeat;
-        @media screen and (max-width: $breakpoint) {
-          width: 79px;
-          margin-top: 0;
-        }
-      }
-    }
-    .right {
-      grid-area: right;
-      @media screen and (max-width: $breakpoint) {
-        padding-top: 0;
-      }
-      p {
-        font-family: "Reckless Neue Light";
-        font-size: 40px;
-        margin: 0;
-        padding-right: 20px;
-
-        font-weight: 300;
-        line-height: 48px;
-        letter-spacing: -0.03em;
-
-        @media screen and (max-width: $breakpoint) {
-          font-size: 24px;
-          line-height: 28.8px;
-        }
-      }
-      #mc_embed_signup div.mce_inline_error {
-        position: absolute;
-      }
-      input.email {
-        line-height: 1.8;
-        border: none;
-        width: 100%;
-        background-color: transparent;
-        border-bottom: 2px solid $white !important;
-        font-size: 26px;
-        padding-left: 0;
-        margin-top: 60px;
-        outline: none;
-        position: relative;
-        &::placeholder {
-          color: $white;
-        }
-        @media screen and (max-width: $breakpoint) {
-          margin-top: 30px;
+        flex-direction: column;
+        a {
+          width: 100%;
           font-size: 18px;
         }
       }
-      .mc-field-group {
-        position: relative;
+    }
+    a {
+      text-decoration: none;
+      font-size: 26px;
+      width: 32%;
+      display: inline-block;
+      line-height: 2;
+      letter-spacing: -0.01em;
+    }
+    .image {
+      background-image: asset_url("logomark_white");
+      height: 120px;
+      margin-top: 50px;
+      background-repeat: no-repeat;
+      @media screen and (max-width: $breakpoint) {
+        width: 79px;
+        margin-top: 0;
       }
-      #mce-responses {
-        margin-bottom: -25px;
-      }
-      .clear {
-        position: absolute;
-        right: 0px;
-        bottom: 0px;
+    }
+  }
+  .right {
+    grid-area: right;
+    @media screen and (max-width: $breakpoint) {
+      padding-top: 0;
+    }
+    p {
+      font-family: "Reckless Neue Light";
+      font-size: 40px;
+      margin: 0;
+      padding-right: 20px;
 
-        .arrow {
-          background-image: asset_url("arow-r.png");
-          background-size: contain;
-          cursor: pointer;
-          width: 54px;
-          height: 30px;
-          margin-bottom: 10px;
-          background-repeat: no-repeat;
-          color: none;
-          border: none;
-          -webkit-filter: invert(1);
-          filter: invert(1);
-          background-color: transparent;
+      font-weight: 300;
+      line-height: 48px;
+      letter-spacing: -0.03em;
+
+      @media screen and (max-width: $breakpoint) {
+        font-size: 24px;
+        line-height: 28.8px;
+      }
+    }
+    #mc_embed_signup div.mce_inline_error {
+      position: absolute;
+    }
+    input.email {
+      line-height: 1.8;
+      border: none;
+      width: 100%;
+      background-color: transparent;
+      border-bottom: 2px solid $white !important;
+      font-size: 26px;
+      padding-left: 0;
+      margin-top: 60px;
+      outline: none;
+      position: relative;
+      &::placeholder {
+        color: $white;
+      }
+      @media screen and (max-width: $breakpoint) {
+        margin-top: 30px;
+        font-size: 18px;
+      }
+    }
+    .mc-field-group {
+      position: relative;
+    }
+    #mce-responses {
+      margin-bottom: -25px;
+    }
+    .clear {
+      position: absolute;
+      right: 0px;
+      bottom: 0px;
+
+      .arrow {
+        background-image: asset_url("arrow-big.svg");
+        background-size: contain;
+        cursor: pointer;
+        width: 54px;
+        height: 30px;
+        margin-bottom: 10px;
+        background-repeat: no-repeat;
+        color: none;
+        border: none;
+        -webkit-filter: invert(1);
+        filter: invert(1);
+        background-color: transparent;
+        @media screen and (max-width: $breakpoint) {
+          background-image: asset_url("arrow-small.svg");
         }
       }
     }
-    .base {
-      grid-area: base;
-      span,
-      a {
-        text-transform: uppercase;
-        text-decoration: none;
-        font-size: 13px;
-      }
-      span {
-        margin-right: 30px;
-      }
+  }
+  .base {
+    grid-area: base;
+    span,
+    a {
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 13px;
     }
-    * {
-      color: $white;
-      font-family: "Surt Light";
+    span {
+      margin-right: 30px;
     }
+  }
+  * {
+    color: $white;
+    font-family: "Surt Light";
   }
 }

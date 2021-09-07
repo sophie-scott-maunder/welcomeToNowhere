@@ -1,13 +1,11 @@
 module Airtable
   def self.fetch(resource)
     # caches if in development
-    # return ENV['RACK_ENV'] == 'development' &&
+    # return ENV['RACK_ENV'] == 'development' && self.send(resource)
 
-    self.send(resource)
-
-    # Rails
-    #   .cache
-    #   .fetch([self, resource], expires_in: 10.hours) { self.send(resource) }
+    Rails
+      .cache
+      .fetch([self, resource], expires_in: 10.hours) { self.send(resource) }
   end
 
   def self.upcoming_acts

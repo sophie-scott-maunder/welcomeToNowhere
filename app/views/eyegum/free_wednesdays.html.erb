@@ -1,27 +1,65 @@
-<div class="main-container wednesdays">
+<div class="wednesdays">
   <div class="splash " style="background-color: <%= @background_colour %>;">
-    <h1>
-      Free Wednesdays
-    </h1>
-    <p>Most weeks at San Fran, come check out upcoming local artists, totally free.</p>
-    <div class="image"></div>
+    <div class="left">
+      <h1>
+        Free Wednesdays
+      </h1>
+      <p>Most weeks at San Fran, come check out upcoming local artists, totally free.</p>
+      <div class="img-sm-container">
+        <div class="image-sm-1" alt="Eyegum Wednesdays at San Fran"></div>
+        <div class="image-sm-2" alt="Eyegum Wednesdays at San Fran"></div>
+      </div>
+      <a href="">
+        Apply To Play
+        <span class="arrow"></span>
+      </a>
+    </div>
+    <div class="right">
+      <div class="image" alt="Eyegum Wednesdays at San Fran"></div>
+    </div>
   </div>
   <div class="coming-up" style="background-color: <%= @background_colour %>;">
     <h3>Coming Up</h3>
     <% @upcoming_acts.each do |act| %>
       <div class="act">
         <div class="top">
-          <p><%= act['Date'] %></p>
-          <h3><%= act['Event title'] %></h3>
+          <p class='date'>
+            <%= act['Date'] %>
+          </p>
+          <p>
+            <%= act['Event title'] %>
+          </p>
+          <p class="large">
+            <%= act['Address'] %>
+          </p>
         </div>
 
-        <p>
-          <%= act['Address'] %>
-        </p>
-        <p>
-          <%= act['Insert short caption about event'] %>
-        </p>
+        <div class="bottom">
+          <div class="about">
+            <p class="large">
+              <%= act['Address'] %>
+            </p>
+            <p>
+              <%= act['Insert short caption about event'] %>
+            </p>
+          </div>
+          <% if Airtable.image(act, 'Poster' ) %>
+            <img src="<%= Airtable.image(act, 'Poster') %>" />
+            <% end %>
+        </div>
       </div>
-    <% end %>
+      <% end %>
+
+  </div>
+  <div class="gallery" style="background-color: <%= @background_colour %>;">
+    <h3>Gallery</h3>
+    <div class="gallery-container">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 </div>
