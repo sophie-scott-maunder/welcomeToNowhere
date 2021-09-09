@@ -3,7 +3,7 @@
 
   <% @artists.each.with_index do |artist, index| %>
   <a href="/welcome_to_nowhere/artists/<%= index %>">
-    <div class="card" style="background-color: <%= @colours[index % 9] %>">
+    <div class="card" style="background-color: #f9f8ef;">
       <div class="img-container" style="background-image: url(<%= artist[:image_url] %>)"></div>
       <div class="text-container">
         <h3><%= artist[:name] %></h3>
